@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join
 
 # relative file path in local folder
-img_folder_path = '../faces'
+img_folder_path = '../anime'
 sketch_output_path = '../generated_sketch_data/'
 
 # generate all sketchs from anime faces
@@ -25,7 +25,7 @@ for f in listdir(img_folder_path):
         We have the blurred image, which highlights the boldest edges
         """
         final_img = cv2.divide(img_gray, 255-img_blur, scale=256)
-        save_path = sketch_output_path + f.split(".")[0] + '.png'
+        save_path = sketch_output_path + f
         cv2.imwrite(save_path, final_img)
 
 

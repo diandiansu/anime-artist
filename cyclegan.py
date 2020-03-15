@@ -276,11 +276,9 @@ for epoch in range(opt.epoch, opt.n_epochs):
             )
         )
 
-        # If at sample interval save image
+        # If at sample interval save image and plot cost
         if batches_done % opt.sample_interval == 0:
             sample_images(batches_done)
-
-        if i == len(dataloader) - 1:
             cost_D.append(loss_D.item())
             cost_G.append(loss_G.item())
             cost_GAN.append(loss_GAN.item())

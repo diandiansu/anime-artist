@@ -258,28 +258,28 @@ for epoch in range(opt.epoch, opt.n_epochs):
 plt.plot(np.squeeze(cost_D))
 plt.ylabel('D cost')
 plt.xlabel('iterations (per hundreds)')
-plt.savefig("cost_graph/%s/cost_D_%d.jpg" % (opt.dataset_name, opt.n_epochs))
+plt.savefig("cost_graph/%s/%d/cost_D.jpg" % (opt.dataset_name, opt.n_epochs))
 
 
 plt.plot(np.squeeze(cost_G))
 plt.ylabel('G cost')
 plt.xlabel('iterations (per hundreds)')
-plt.savefig("cost_graph/%s/cost_G_%d.jpg" % (opt.dataset_name, opt.n_epochs))
+plt.savefig("cost_graph/%s/%d/cost_G.jpg" % (opt.dataset_name, opt.n_epochs))
 
 plt.plot(np.squeeze(cost_GAN))
 plt.ylabel('GAN cost')
 plt.xlabel('iterations (per hundreds)')
 plt.show()
-plt.savefig("cost_graph/%s/cost_GAN_%d.jpg" % (opt.dataset_name, opt.n_epochs))
+plt.savefig("cost_graph/%s/%d/cost_GAN.jpg" % (opt.dataset_name, opt.n_epochs))
 
 plt.plot(np.squeeze(cost_cycle))
 plt.ylabel('Cyle cost')
 plt.xlabel('iterations (per hundreds)')
 plt.show()
-plt.savefig("cost_graph/%s/cost_cycle_%d.jpg" % (opt.dataset_name, opt.n_epochs))
+plt.savefig("cost_graph/%s/%d/cost_cycle.jpg" % (opt.dataset_name, opt.n_epochs))
 
 plt.plot(np.squeeze(cost_pixelwise))
 plt.ylabel('Pixelwise cost')
 plt.xlabel('iterations (per hundreds)')
 plt.show()
-plt.savefig("cost_graph/%s/cost_pixelwise_%d.jpg" % (opt.dataset_name, opt.n_epochs))
+plt.savefig("cost_graph/%s/%d/cost_pixelwise.jpg" % (opt.dataset_name, opt.n_epochs))

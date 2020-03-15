@@ -6,6 +6,7 @@ import itertools
 import sys
 import datetime
 import time
+import matplotlib.pyplot as plt
 
 import torchvision.transforms as transforms
 from torchvision.utils import save_image

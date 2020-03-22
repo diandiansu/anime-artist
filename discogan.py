@@ -40,9 +40,9 @@ opt = parser.parse_args()
 print(opt)
 
 # Create sample and checkpoint directories
-os.makedirs("images/%s" % opt.dataset_name, exist_ok=True)
-os.makedirs("saved_models/%s" % opt.dataset_name, exist_ok=True)
-
+os.makedirs("images/%s/%d" % (opt.dataset_name, opt.n_epochs), exist_ok=True)
+os.makedirs("saved_models/%s/%d" % (opt.dataset_name, opt.n_epochs), exist_ok=True)
+os.makedirs("cost_graph/%s/%d" % (opt.dataset_name, opt.n_epochs), exist_ok=True)
 # Losses
 adversarial_loss = torch.nn.MSELoss()
 cycle_loss = torch.nn.L1Loss()
@@ -258,28 +258,28 @@ for epoch in range(opt.epoch, opt.n_epochs):
 plt.plot(np.squeeze(cost_D))
 plt.ylabel('D cost')
 plt.xlabel('iterations (per hundreds)')
-plt.savefig('cost_D.jpg')
+plt.savefig("cost_graph/%s/%d/cost_D.jpg" % (opt.dataset_name, opt.n_epochs))
 
 
 plt.plot(np.squeeze(cost_G))
 plt.ylabel('G cost')
 plt.xlabel('iterations (per hundreds)')
-plt.savefig('cost_G.jpg')
+plt.savefig("cost_graph/%s/%d/cost_G.jpg" % (opt.dataset_name, opt.n_epochs))
 
 plt.plot(np.squeeze(cost_GAN))
 plt.ylabel('GAN cost')
 plt.xlabel('iterations (per hundreds)')
 plt.show()
-plt.savefig('cost_GAN.jpg')
+plt.savefig("cost_graph/%s/%d/cost_GAN.jpg" % (opt.dataset_name, opt.n_epochs))
 
 plt.plot(np.squeeze(cost_cycle))
 plt.ylabel('Cyle cost')
 plt.xlabel('iterations (per hundreds)')
 plt.show()
-plt.savefig('cost_cycle.jpg')
+plt.savefig("cost_graph/%s/%d/cost_cycle.jpg" % (opt.dataset_name, opt.n_epochs))
 
 plt.plot(np.squeeze(cost_pixelwise))
 plt.ylabel('Pixelwise cost')
 plt.xlabel('iterations (per hundreds)')
 plt.show()
-plt.savefig('cost_pixelwise.jpg')
+plt.savefig("cost_graph/%s/%d/cost_pixelwise.jpg" % (opt.dataset_name, opt.n_epochs))
